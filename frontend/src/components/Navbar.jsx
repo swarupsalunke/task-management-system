@@ -1,4 +1,3 @@
-
 import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
@@ -14,66 +13,87 @@ function Navbar() {
 
   return (
     <nav
-      className="navbar navbar-expand-lg px-3 shadow"
+      className="navbar navbar-expand-lg px-4"
       style={{
-        background: "linear-gradient(135deg, #14cba8, #3a86ff, #6a00f4)",
+        background: "#141414",
+        borderBottom: "1px solid #2a2a2a",
       }}
     >
-      {/* Logo */}
+      {/* Logo + Brand */}
       <Link
-        className="navbar-brand d-flex align-items-center text-white fw-bold"
+        className="navbar-brand d-flex align-items-center gap-2 text-white fw-bold"
         to="/dashboard"
       >
-        <img
-          src="https://i.redd.it/hi-this-is-a-logo-for-the-task-manager-application-called-v0-si3hzlaglc7b1.png?width=8113&format=png&auto=webp&s=750d601f5c083ada2e639535f6b0576fbcb2dc31"
-          alt="logo"
-          style={{ width: "38px", marginRight: "8px", borderRadius: "8px" }}
-        />
+        <div
+          className="rounded-2 d-flex align-items-center justify-content-center"
+          style={{
+            width: 36, height: 36,
+            background: "linear-gradient(135deg, #00D2B4, #4F8EF7, #7B5EA7)",
+            flexShrink: 0,
+          }}
+        >
+          <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
+            <path d="M6 9 Q15 3 24 9 L24 15 Q15 9 6 15 Z" fill="white" opacity="0.9" />
+            <path d="M6 15 Q15 9 24 15 L24 21 Q15 27 6 21 Z" fill="white" opacity="0.6" />
+          </svg>
+        </div>
         TaskFlow
+        
       </Link>
 
-      {/* ✅ Mobile Toggle Button */}
+      {/* Mobile Toggle */}
       <button
         className="navbar-toggler border-0"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarContent"
+        style={{ filter: "invert(1)" }}
       >
-        <span className="navbar-toggler-icon"></span>
+        <span className="navbar-toggler-icon" />
       </button>
 
-      {/* ✅ Collapsible Content */}
+      {/* Collapsible Content */}
       <div className="collapse navbar-collapse" id="navbarContent">
-        <div className="ms-auto d-flex align-items-lg-center flex-column flex-lg-row mt-3 mt-lg-0">
+        <div className="ms-auto d-flex align-items-lg-center flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
 
           {token ? (
             <>
-              {/* User */}
-              <span className="text-white fw-semibold me-lg-3 mb-2 mb-lg-0 text-center">
-                Hi, {user?.name || "User"}
+              {/* User greeting */}
+              <span
+                className="fw-semibold small px-2 text-center"
+                style={{ color: "#888" }}
+              >
+                Hi, {user?.name || "User"} 👋
               </span>
 
-              {/* Buttons */}
               <Link
-                className="btn btn-light fw-semibold me-lg-2 mb-2 mb-lg-0"
+                className="btn btn-sm fw-semibold rounded-3"
+                style={{
+                  background: "#1f1f1f",
+                  color: "#fff",
+                  border: "1px solid #2a2a2a",
+                }}
                 to="/dashboard"
               >
                 Dashboard
               </Link>
 
               <Link
-                className="btn btn-light fw-semibold me-lg-3 mb-2 mb-lg-0"
+                className="btn btn-sm fw-semibold rounded-3 text-white border-0"
+                style={{
+                  background: "linear-gradient(90deg, #00D2B4, #4F8EF7, #7B5EA7)",
+                }}
                 to="/create"
               >
-                New Task
+                + New Task
               </Link>
 
               <button
-                className="btn fw-semibold"
+                className="btn btn-sm fw-semibold rounded-3"
                 style={{
-                  background: "#ff4d4f",
-                  color: "white",
-                  border: "none",
+                  background: "#2a0a0a",
+                  color: "#ff6b6b",
+                  border: "1px solid #3d1414",
                 }}
                 onClick={handleLogout}
               >
@@ -83,14 +103,22 @@ function Navbar() {
           ) : (
             <>
               <Link
-                className="btn btn-light fw-semibold me-lg-2 mb-2 mb-lg-0"
+                className="btn btn-sm fw-semibold rounded-3"
+                style={{
+                  background: "#1f1f1f",
+                  color: "#fff",
+                  border: "1px solid #2a2a2a",
+                }}
                 to="/"
               >
-                Login
+                Sign In
               </Link>
 
               <Link
-                className="btn btn-light fw-semibold"
+                className="btn btn-sm fw-semibold rounded-3 text-white border-0"
+                style={{
+                  background: "linear-gradient(90deg, #00D2B4, #4F8EF7, #7B5EA7)",
+                }}
                 to="/register"
               >
                 Register
@@ -105,5 +133,3 @@ function Navbar() {
 }
 
 export default Navbar;
-
-
