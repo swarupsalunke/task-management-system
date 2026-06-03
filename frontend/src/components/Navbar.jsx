@@ -11,116 +11,72 @@ function Navbar() {
     navigate("/");
   };
 
+  const initials = user?.name
+    ? user.name.split(" ").map(w => w[0]).join("").slice(0, 2).toUpperCase()
+    : "U";
+
   return (
-    <nav
-      className="navbar navbar-expand-lg px-4"
-      style={{
-        background: "#141414",
-        borderBottom: "1px solid #2a2a2a",
-      }}
-    >
-      {/* Logo + Brand */}
-      <Link
-        className="navbar-brand d-flex align-items-center gap-2 text-white fw-bold"
-        to="/dashboard"
-      >
-        <div
-          className="rounded-2 d-flex align-items-center justify-content-center"
-          style={{
-            width: 36, height: 36,
-            background: "linear-gradient(135deg, #00D2B4, #4F8EF7, #7B5EA7)",
-            flexShrink: 0,
-          }}
-        >
-          <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
-            <path d="M6 9 Q15 3 24 9 L24 15 Q15 9 6 15 Z" fill="white" opacity="0.9" />
-            <path d="M6 15 Q15 9 24 15 L24 21 Q15 27 6 21 Z" fill="white" opacity="0.6" />
-          </svg>
+    <nav className="navbar navbar-expand-lg px-3 taskflow-navbar">
+
+      {/* Brand */}
+      <Link className="navbar-brand taskflow-brand" to="/dashboard">
+        <div className="nb-brand-icon">
+          <i className="ti ti-clipboard-list" aria-hidden="true"></i>
         </div>
-        TaskFlow
-        
+        <span className="nb-brand-text">TaskFlow</span>
       </Link>
 
-      {/* Mobile Toggle */}
+      {/* Mobile toggle */}
       <button
-        className="navbar-toggler border-0"
+        className="navbar-toggler nb-toggler"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#navbarContent"
-        style={{ filter: "invert(1)" }}
+        aria-label="Toggle navigation"
       >
-        <span className="navbar-toggler-icon" />
+        <i className="ti ti-menu-2" aria-hidden="true"></i>
       </button>
 
-      {/* Collapsible Content */}
+      {/* Collapsible content */}
       <div className="collapse navbar-collapse" id="navbarContent">
         <div className="ms-auto d-flex align-items-lg-center flex-column flex-lg-row gap-2 mt-3 mt-lg-0">
 
           {token ? (
             <>
-              {/* User greeting */}
-              <span
-                className="fw-semibold small px-2 text-center"
-                style={{ color: "#888" }}
-              >
-                Hi, {user?.name || "User"} 👋
-              </span>
+              {/* Avatar + greeting */}
+              <div className="nb-greeting">
+                <div className="nb-avatar">{initials}</div>
+                <span>Hi, {user?.name?.split(" ")[0] || "User"}</span>
+              </div>
 
-              <Link
-                className="btn btn-sm fw-semibold rounded-3"
-                style={{
-                  background: "#1f1f1f",
-                  color: "#fff",
-                  border: "1px solid #2a2a2a",
-                }}
-                to="/dashboard"
-              >
+              <div className="nb-sep d-none d-lg-block"></div>
+
+              <Link className="nb-btn" to="/dashboard">
+                <i className="ti ti-layout-dashboard" aria-hidden="true"></i>
                 Dashboard
               </Link>
 
-              <Link
-                className="btn btn-sm fw-semibold rounded-3 text-white border-0"
-                style={{
-                  background: "linear-gradient(90deg, #00D2B4, #4F8EF7, #7B5EA7)",
-                }}
-                to="/create"
-              >
-                + New Task
+              <Link className="nb-btn nb-btn-solid" to="/create">
+                <i className="ti ti-circle-plus" aria-hidden="true"></i>
+                New Task
               </Link>
 
-              <button
-                className="btn btn-sm fw-semibold rounded-3"
-                style={{
-                  background: "#2a0a0a",
-                  color: "#ff6b6b",
-                  border: "1px solid #3d1414",
-                }}
-                onClick={handleLogout}
-              >
+              <div className="nb-sep d-none d-lg-block"></div>
+
+              <button className="nb-btn nb-btn-danger" onClick={handleLogout}>
+                <i className="ti ti-logout" aria-hidden="true"></i>
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link
-                className="btn btn-sm fw-semibold rounded-3"
-                style={{
-                  background: "#1f1f1f",
-                  color: "#fff",
-                  border: "1px solid #2a2a2a",
-                }}
-                to="/"
-              >
-                Sign In
+              <Link className="nb-btn" to="/">
+                <i className="ti ti-login" aria-hidden="true"></i>
+                Login
               </Link>
 
-              <Link
-                className="btn btn-sm fw-semibold rounded-3 text-white border-0"
-                style={{
-                  background: "linear-gradient(90deg, #00D2B4, #4F8EF7, #7B5EA7)",
-                }}
-                to="/register"
-              >
+              <Link className="nb-btn nb-btn-solid" to="/register">
+                <i className="ti ti-user-plus" aria-hidden="true"></i>
                 Register
               </Link>
             </>

@@ -1,0 +1,969 @@
+/* ========================================
+   NAVBAR — TaskFlow (updated)
+   ======================================== */
+
+.taskflow-navbar {
+  background: linear-gradient(135deg, #14cba8 0%, #3a86ff 50%, #6a00f4 100%) !important;
+  padding: 0.55rem 1.25rem !important;
+  position: relative;
+}
+
+.taskflow-navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* Brand */
+.taskflow-brand {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px;
+  text-decoration: none !important;
+}
+
+.nb-brand-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.nb-brand-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff !important;
+  letter-spacing: -0.02em;
+}
+
+/* Avatar + greeting */
+.nb-greeting {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  margin-right: 0.15rem;
+}
+
+.nb-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  flex-shrink: 0;
+}
+
+/* Separator */
+.nb-sep {
+  width: 1px;
+  height: 18px;
+  background: rgba(255, 255, 255, 0.18);
+  margin: 0 0.15rem;
+}
+
+/* All nav buttons */
+.nb-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.35rem 0.85rem;
+  border-radius: 8px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff !important;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none !important;
+  transition: background 0.15s, border-color 0.15s, transform 0.12s;
+  white-space: nowrap;
+}
+
+.nb-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+/* Solid — New Task / Register */
+.nb-btn-solid {
+  background: rgba(255, 255, 255, 0.92) !important;
+  color: #4f35c2 !important;
+  border-color: transparent !important;
+}
+
+.nb-btn-solid:hover {
+  background: #fff !important;
+}
+
+/* Danger — Logout */
+.nb-btn-danger {
+  background: rgba(255, 77, 79, 0.18) !important;
+  border-color: rgba(255, 100, 100, 0.38) !important;
+  color: #fca5a5 !important;
+}
+
+.nb-btn-danger:hover {
+  background: rgba(255, 77, 79, 0.32) !important;
+}
+
+/* Mobile toggler */
+.nb-toggler {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border: 1.5px solid rgba(255, 255, 255, 0.3) !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  font-size: 18px;
+  padding: 0.3rem 0.5rem !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile collapsed menu */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .nb-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nb-greeting {
+    justify-content: center;
+  }
+}
+
+/* ========================================
+   DASHBOARD PAGE
+   ======================================== */
+
+/* Page background */
+.dashboard-page {
+  background: #0f172a !important;
+  min-height: 100vh;
+}
+
+/* ── Stats Cards ── */
+.dashboard-page .stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  color: #fff;
+}
+
+.dashboard-page .stat-card .stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 4px;
+}
+
+.dashboard-page .stat-card .stat-number {
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.dashboard-page .stat-card .stat-bar {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.dashboard-page .stat-card .stat-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+}
+
+/* Individual stat colors */
+.stat-card.total   .stat-number { color: #f1f5f9; }
+.stat-card.total   .stat-bar-fill { background: rgba(255,255,255,0.3); width: 100%; }
+
+.stat-card.done    .stat-number { color: #4ade80; }
+.stat-card.done    .stat-bar-fill { background: #4ade80; }
+
+.stat-card.pending .stat-number { color: #fbbf24; }
+.stat-card.pending .stat-bar-fill { background: #fbbf24; }
+
+/* ── Search bar ── */
+.dashboard-page .search-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  padding: 0.45rem 0.9rem;
+}
+
+.dashboard-page .search-wrapper .form-control {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  padding: 0;
+}
+
+.dashboard-page .search-wrapper .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+/* ── New Task button ── */
+.dashboard-page .btn-new-task {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #14cba8, #3a86ff, #6a00f4) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 10px;
+  padding: 0.45rem 1.1rem;
+  transition: opacity 0.18s, transform 0.12s;
+}
+
+.dashboard-page .btn-new-task:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* ── Filter buttons ── */
+.dashboard-page .filter-btn {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.3rem 1rem;
+  border-radius: 99px;
+  border: 1px solid;
+  transition: all 0.15s;
+}
+
+.dashboard-page .filter-btn.all.active,
+.dashboard-page .filter-btn.all {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+  border-color: transparent;
+}
+
+.dashboard-page .filter-btn.pending {
+  background: rgba(251, 191, 36, 0.12);
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.3);
+}
+
+.dashboard-page .filter-btn.pending.active,
+.dashboard-page .filter-btn.pending:not(.btn-outline-warning) {
+  background: #fbbf24;
+  color: #0f172a;
+  border-color: transparent;
+}
+
+.dashboard-page .filter-btn.completed {
+  background: rgba(74, 222, 128, 0.1);
+  color: #4ade80;
+  border-color: rgba(74, 222, 128, 0.25);
+}
+
+.dashboard-page .filter-btn.completed.active {
+  background: #4ade80;
+  color: #0f172a;
+  border-color: transparent;
+}
+
+/* ── No tasks message ── */
+.dashboard-page .empty-state {
+  color: rgba(255, 255, 255, 0.45) !important;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* ========================================
+   CREATE TASK PAGE
+   ======================================== */
+
+.create-task-page {
+  background: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.create-task-card {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* Header */
+.ct-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.ct-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #14cba8, #3a86ff, #6a00f4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.ct-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+/* Fields */
+.ct-field {
+  margin-bottom: 0.9rem;
+}
+
+.ct-label {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.35rem;
+}
+
+.ct-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 9px !important;
+  padding: 0.52rem 0.85rem !important;
+  color: #e2e8f0 !important;
+  font-family: 'Plus Jakarta Sans', sans-serif !important;
+  font-size: 0.85rem !important;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.ct-input:focus {
+  border-color: rgba(58, 134, 255, 0.55) !important;
+  background: rgba(58, 134, 255, 0.06) !important;
+  box-shadow: none !important;
+}
+
+.ct-input::placeholder {
+  color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.ct-textarea {
+  resize: none;
+  height: 80px;
+  line-height: 1.5;
+}
+
+.ct-select {
+  appearance: none;
+  cursor: pointer;
+}
+
+.ct-select option {
+  background: #1e293b;
+  color: #e2e8f0;
+}
+
+/* Two-column row */
+.ct-row2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+/* Divider */
+.ct-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 0.5rem 0 1rem;
+}
+
+/* Submit button */
+.ct-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #14cba8, #3a86ff, #6a00f4);
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: opacity 0.15s, transform 0.12s;
+}
+
+.ct-submit-btn:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.ct-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ========================================
+   TASK DETAIL PAGE
+   ======================================== */
+
+.task-detail-page {
+  background: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.td-card {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 1.75rem;
+  width: 100%;
+  max-width: 430px;
+}
+
+/* Title + status row */
+.td-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 0.6rem;
+}
+
+.td-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Status badge */
+.td-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 99px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.td-badge-pending {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+}
+
+.td-badge-done {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.25);
+}
+
+/* Description */
+.td-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.84rem;
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.65;
+  margin-bottom: 1.1rem;
+}
+
+/* Divider */
+.td-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin-bottom: 1.1rem;
+}
+
+/* Meta rows */
+.td-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 1.4rem;
+}
+
+.td-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.td-row-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.38);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.td-row-label i {
+  font-size: 15px;
+}
+
+/* Meta badges */
+.td-meta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.td-priority-low  { background: rgba(74,222,128,.12); color: #4ade80; border: 1px solid rgba(74,222,128,.2); }
+.td-priority-med  { background: rgba(251,191,36,.12); color: #fbbf24; border: 1px solid rgba(251,191,36,.2); }
+.td-priority-high { background: rgba(239,68,68,.12);  color: #f87171; border: 1px solid rgba(239,68,68,.2);  }
+.td-badge-cat     { background: rgba(58,134,255,.12); color: #60a5fa; border: 1px solid rgba(58,134,255,.2); }
+.td-badge-date    { background: rgba(255,255,255,.07); color: rgba(255,255,255,.55); border: 1px solid rgba(255,255,255,.1); }
+
+/* Buttons */
+.td-btn-complete {
+  width: 100%;
+  background: linear-gradient(135deg, #14cba8, #3a86ff, #6a00f4);
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: opacity 0.15s, transform 0.12s;
+  margin-bottom: 0.55rem;
+}
+
+.td-btn-complete:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.td-btn-back {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 0.55rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.td-btn-back:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ========================================
+   TASK CARD COMPONENT
+   ======================================== */
+
+.task-card {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  padding: 1.1rem 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  height: 100%;
+  transition: border-color 0.18s, transform 0.15s;
+}
+
+.task-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Title + status row */
+.tc-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.tc-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f1f5f9;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* Status pill */
+.tc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 99px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.tc-status-pending {
+  background: rgba(251, 191, 36, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(251, 191, 36, 0.22);
+}
+
+.tc-status-done {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+  border: 1px solid rgba(74, 222, 128, 0.22);
+}
+
+/* Description */
+.tc-desc {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.38);
+  line-height: 1.55;
+  margin: 0;
+
+  /* 2 line clamp */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Badges row */
+.tc-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 99px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.tc-badge-high { background: rgba(239,68,68,.12);  color: #f87171; border: 1px solid rgba(239,68,68,.2);  }
+.tc-badge-med  { background: rgba(251,191,36,.12); color: #fbbf24; border: 1px solid rgba(251,191,36,.2); }
+.tc-badge-low  { background: rgba(74,222,128,.12); color: #4ade80; border: 1px solid rgba(74,222,128,.2); }
+.tc-badge-cat  { background: rgba(58,134,255,.1);  color: #60a5fa; border: 1px solid rgba(58,134,255,.18);}
+
+/* Due date */
+.tc-date {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.71rem;
+  color: rgba(255, 255, 255, 0.28);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* Action buttons */
+.tc-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 0.1rem;
+}
+
+.tc-act {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid;
+  cursor: pointer;
+  font-size: 14px;
+  background: transparent;
+  transition: opacity 0.15s, transform 0.12s;
+}
+
+.tc-act:hover {
+  opacity: 0.8;
+  transform: translateY(-1px);
+}
+
+.tc-act-check { color: #4ade80; border-color: rgba(74,222,128,.22);  background: rgba(74,222,128,.1);  }
+.tc-act-view  { color: #60a5fa; border-color: rgba(58,134,255,.2);   background: rgba(58,134,255,.1);  }
+.tc-act-edit  { color: #fbbf24; border-color: rgba(251,191,36,.2);   background: rgba(251,191,36,.1);  }
+.tc-act-del   { color: #f87171; border-color: rgba(239,68,68,.18);   background: rgba(239,68,68,.1);   }
+
+/* ========================================
+   EDIT TASK — icon & button color override
+   ======================================== */
+
+.et-icon {
+  background: #fbbf24 !important;
+  color: #0f172a !important;
+}
+
+.et-btn {
+  background: #fbbf24 !important;
+  color: #0f172a !important;
+}
+
+.et-btn:hover:not(:disabled) {
+  background: #f59e0b !important;
+  opacity: 1 !important;
+}
+
+/* ========================================
+   AUTH PAGES — Register & Login shared
+   ======================================== */
+
+.auth-page {
+  background: #0f172a;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.auth-card {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 370px;
+}
+
+/* Brand section */
+.auth-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 1.6rem;
+}
+
+.auth-brand-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #14cba8, #3a86ff, #6a00f4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 2px;
+}
+
+.auth-brand-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.auth-brand-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Fields */
+.auth-field {
+  margin-bottom: 0.85rem;
+}
+
+.auth-label {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  margin-bottom: 0.35rem;
+}
+
+.auth-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 9px;
+  padding: 0.52rem 0.85rem;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.auth-input-wrap:focus-within {
+  border-color: rgba(58, 134, 255, 0.55);
+  background: rgba(58, 134, 255, 0.06);
+}
+
+.auth-input-wrap i {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.auth-input-wrap input {
+  background: none;
+  border: none;
+  outline: none;
+  color: #e2e8f0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.auth-input-wrap input::placeholder {
+  color: rgba(255, 255, 255, 0.22);
+}
+
+/* Password eye toggle */
+.auth-eye {
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.auth-eye:hover {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Divider */
+.auth-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.07);
+  margin: 0.6rem 0 1rem;
+}
+
+/* Submit button */
+.auth-submit-btn {
+  width: 100%;
+  background: linear-gradient(135deg, #14cba8, #3a86ff, #6a00f4);
+  border: none;
+  border-radius: 10px;
+  padding: 0.65rem;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: opacity 0.15s, transform 0.12s;
+}
+
+.auth-submit-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+/* Footer link */
+.auth-footer-link {
+  text-align: center;
+  margin-top: 1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.auth-footer-link a {
+  color: #60a5fa;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.auth-footer-link a:hover {
+  text-decoration: underline;
+}
