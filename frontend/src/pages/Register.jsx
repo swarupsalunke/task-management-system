@@ -16,7 +16,10 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/register", form);
+      await await axios.post(
+  "https://task-management-system-1-2cn9.onrender.com/api/auth/register",
+  form
+);
       toast.success("Registered successfully 🚀");
       setTimeout(() => navigate("/"), 1500);
     } catch (err) {
